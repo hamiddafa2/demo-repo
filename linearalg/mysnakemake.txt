@@ -1,0 +1,18 @@
+rule all:
+    input: "results/det.txt"
+
+rule multiply:
+    input: "data/A.csv", "data/B.csv"
+    output: "results/C.csv"
+    shell: "python multiply.py {input} > {output}"
+
+rule transpose:
+    input: "results/C.csv"
+    output: "results/C_T.csv"
+    shell: "python transpose.py {input} > {output}"
+
+rule determinant:
+    input: "results/C_T.csv"
+    output: "results/det.txt"
+    shell: "python determinant.py {input} > {output}"
+

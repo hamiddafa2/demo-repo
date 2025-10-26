@@ -1,0 +1,40 @@
+Assuming unrestricted shared filesystem usage.
+host: hyperion
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job       count
+------  -------
+all           1
+newton        1
+total         2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Fri Oct 24 07:59:44 2025]
+localrule newton:
+    output: results/root.txt
+    jobid: 1
+    reason: Missing output files: results/root.txt
+    resources: tmpdir=/tmp
+Shell command: 
+        python newton.py             --f "x**3 - x - 2"             --df "3*x**2 - 1"             --x0 1.5             --tol 1e-10             --max-iter 50             --alpha 1.0             > results/root.txt
+        
+[Fri Oct 24 07:59:44 2025]
+Finished jobid: 1 (Rule: newton)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Fri Oct 24 07:59:44 2025]
+localrule all:
+    input: results/root.txt
+    jobid: 0
+    reason: Input files updated by another job: results/root.txt
+    resources: tmpdir=/tmp
+Shell command: None
+[Fri Oct 24 07:59:44 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Complete log(s): /home/steps4growth/hdismail1/training2/snakemake_ex/newton_raphson/.snakemake/log/2025-10-24T075944.406711.snakemake.log

@@ -1,0 +1,9 @@
+Assuming unrestricted shared filesystem usage.
+host: hyperion
+Building DAG of jobs...
+MissingInputException in rule multiply in file "/home/steps4growth/hdismail1/training2/snakemake_ex/linearalg/data/mysnakemake.txt", line 4:
+Missing input files for rule multiply:
+    output: results/C.csv
+    affected files:
+        data/B.csv
+        data/A.csv

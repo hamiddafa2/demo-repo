@@ -1,0 +1,3 @@
+
+Root ≈ 1.5213797068  (iterations: 4, tol: 1e-10)
+Check: f(root) ≈ 0.000e+00

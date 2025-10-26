@@ -1,0 +1,5 @@
+rule classification:
+    input: "data/raw.csv"
+    output: "results/metrics.txt"
+    shell: "python train.py {input} {output}"
+

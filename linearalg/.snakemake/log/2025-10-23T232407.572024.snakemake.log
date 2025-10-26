@@ -1,0 +1,63 @@
+Assuming unrestricted shared filesystem usage.
+host: hyperion
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+determinant        1
+multiply           1
+transpose          1
+total              4
+
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Oct 23 23:24:07 2025]
+localrule multiply:
+    input: data/A.csv, data/B.csv
+    output: results/C.csv
+    jobid: 3
+    reason: Updated input files: data/A.csv, data/B.csv
+    resources: tmpdir=/tmp
+[Thu Oct 23 23:24:07 2025]
+Finished jobid: 3 (Rule: multiply)
+1 of 4 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Oct 23 23:24:07 2025]
+localrule transpose:
+    input: results/C.csv
+    output: results/C_T.csv
+    jobid: 2
+    reason: Input files updated by another job: results/C.csv
+    resources: tmpdir=/tmp
+[Thu Oct 23 23:24:07 2025]
+Finished jobid: 2 (Rule: transpose)
+2 of 4 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Oct 23 23:24:07 2025]
+localrule determinant:
+    input: results/C_T.csv
+    output: results/det.txt
+    jobid: 1
+    reason: Input files updated by another job: results/C_T.csv
+    resources: tmpdir=/tmp
+[Thu Oct 23 23:24:07 2025]
+Finished jobid: 1 (Rule: determinant)
+3 of 4 steps (75%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Oct 23 23:24:07 2025]
+localrule all:
+    input: results/det.txt
+    jobid: 0
+    reason: Input files updated by another job: results/det.txt
+    resources: tmpdir=/tmp
+[Thu Oct 23 23:24:07 2025]
+Finished jobid: 0 (Rule: all)
+4 of 4 steps (100%) done
+Complete log(s): /home/steps4growth/hdismail1/training2/snakemake_ex/linearalg/.snakemake/log/2025-10-23T232407.572024.snakemake.log

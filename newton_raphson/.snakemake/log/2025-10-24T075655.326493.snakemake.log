@@ -1,0 +1,28 @@
+Assuming unrestricted shared filesystem usage.
+host: hyperion
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job       count
+------  -------
+all           1
+newton        1
+total         2
+
+Select jobs to execute...
+Execute 1 jobs...
+RuleException in rule newton in file "/home/steps4growth/hdismail1/training2/snakemake_ex/newton_raphson/Snakefile", line 7:
+NameError: The name "('--verbose' if config" is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}, when formatting the following:
+
+        python newton.py \
+            --f "{config[f]}" \
+            --df "{config[df]}" \
+            --x0 {config[x0]} \
+            --tol {config[tol]} \
+            --max-iter {config[max_iter]} \
+            --alpha {config[alpha]} \
+            {('--verbose' if config.get('verbose', False) else '')} \
+            > {output}
+        

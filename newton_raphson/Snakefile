@@ -1,0 +1,21 @@
+configfile: "config.yaml"
+
+rule all:
+    input:
+        "results/root.txt"
+
+rule newton:
+    output:
+        "results/root.txt"
+    shell:
+        """
+        python newton.py \
+            --f "{config[f]}" \
+            --df "{config[df]}" \
+            --x0 {config[x0]} \
+            --tol {config[tol]} \
+            --max-iter {config[max_iter]} \
+            --alpha {config[alpha]} \
+            > {output}
+        """
+

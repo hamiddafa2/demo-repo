@@ -1,0 +1,7 @@
+f: "x**3 - x - 2"
+df: "3*x**2 - 1"
+x0: 1.5
+tol: 1e-10
+max_iter: 50
+alpha: 1.0
+verbose: true
